@@ -1,5 +1,5 @@
-{ config, lib, ... }:
-  let l = lib; t = l.types; in
+{ config, pkgs, lib, ... }:
+  let l = lib; p = pkgs; t = l.types; in
   { # if you're not authenticated, trying to use this cache will cause your build to fail
     options.ardana.ci-cache.enable =
       l.mkOption
@@ -26,5 +26,14 @@
                 "ci.ardana.platonic.systems:yByqhxfJ9KIUOyiCe3FYhV7GMysJSA3i5JRvgPuySsI="
               ];
           };
+
+          services.postgresql =
+            { enable = true;
+              package = p.postgresql_13;
+              port = 5432;
+
+              # https://www.postgresql.org/docs/current/auth-pg-hba-conf.html
+              authentication = "local all all trust";
+            };
       };
   }
