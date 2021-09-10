@@ -1,4 +1,4 @@
-This is a NixOS module for use by those working on the Ardana projects.
+This is a NixOS module for setting up systems to work on Ardana projects. The goal is to have all the global configuration needed to work on all projects set up in this repository.
 
 To import the flake, use the URL `"git+ssh://git@github.com/ArdanaLabs/nixos-module.git"`.
 
