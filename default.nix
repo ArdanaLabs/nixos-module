@@ -4,7 +4,7 @@
     options.ardana.ci-cache.enable =
       l.mkOption
         { type = t.bool;
-          default = true;
+          default = false;
           description = "Whether or not to enable the private CI cache";
         };
 
