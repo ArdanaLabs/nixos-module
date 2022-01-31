@@ -25,6 +25,14 @@ This is a NixOS module for setting up NixOS systems to work on Ardana projects. 
 - Run `sudo nixos-rebuild switch`
 
 ## Options
-- `ardana.ci-cache.enable :: bool`
+- `ardana.caches.cachix :: bool`
   - default: `false`
-  - Whether or not to enable the private CI cache. If you're not authenticated, trying to use this cache will cause your build to fail. Set this to `false` to prevent that. If you've already built your system and now you can't rebuild because it's failing, use `--option substitute false` with `nixos-rebuild` to temporarily disable caching.
+  - Whether or not to enable the Ardana Cachix cache. Note: if you're not authenticated, trying to use this cache will cause your build to fail. If you've already built your system and now you can't rebuild because it's failing, use `--option substitute false` with `nixos-rebuild` to temporarily disable caching.
+
+- `ardana.caches.ci :: bool`
+  - default: `false`
+  - Whether or not to enable the private CI cache. Note: if you're not authenticated, trying to use this cache will cause your build to fail. If you've already built your system and now you can't rebuild because it's failing, use `--option substitute false` with `nixos-rebuild` to temporarily disable caching.
+
+- `ardana.caches.iohk :: bool`
+  - default: `true`
+  - Whether or not to enable the private IOHK caches.
